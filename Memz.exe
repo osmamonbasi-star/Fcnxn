@@ -1,0 +1,29 @@
+using System;
+using System.Threading;
+
+class FakeMemzSimulation
+{
+    static void Main()
+    {
+        Console.Title = "MEMZ Simulation (Harmless)";
+        Console.WriteLine("This is a harmless simulation for learning purposes.\n");
+
+        string[] messages = {
+            "Initializing modules...",
+            "Loading visual effects...",
+            "Simulating activity...",
+            "No files harmed.",
+            "No system changes made.",
+            "Simulation complete."
+        };
+
+        foreach (var msg in messages)
+        {
+            Console.WriteLine(msg);
+            Thread.Sleep(800);
+        }
+
+        Console.WriteLine("\nDone. Press any key to exit.");
+        Console.ReadKey();
+    }
+}
