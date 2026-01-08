@@ -1,0 +1,35 @@
+class MainActivity : AppCompatActivity() {
+
+    private var running = false
+    private val handler = Handler(Looper.getMainLooper())
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.startBtn).setOnClickListener {
+            running = true
+            startPrank()
+        }
+
+        findViewById<Button>(R.id.stopBtn).setOnClickListener {
+            running = false
+        }
+    }
+
+    private fun startPrank() {
+        handler.post(object : Runnable {
+            override fun run() {
+                if (!running) return
+
+                Toast.makeText(
+                    this@MainActivity,
+                    "MEMZ MODE 😈 (ŞAKA)",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                handler.postDelayed(this, 1500)
+            }
+        })
+    }
+}
